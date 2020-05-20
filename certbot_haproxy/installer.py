@@ -247,7 +247,7 @@ class HAProxyInstaller(common.Plugin):
 
         # Check that a supported version of HAProxy is installed.
         version_cmd = constants.os_constant("version_cmd")
-        output = subprocess.check_output(version_cmd)
+        output = subprocess.check_output(version_cmd).decode('utf8')
         matches = re.match(
             r'HA-Proxy version'
             r' (?P<version>[0-9]{1,4}\.[0-9]{1,4}\.[0-9a-z]{1,10}).*',
